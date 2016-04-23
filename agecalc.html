@@ -222,9 +222,9 @@ document.getElementById("demo9").innerHTML = nono;
 return;
 }
 
-stringdate = month2 + "/" + day2 + "/" + year2 + " " + hour2 + ":" + minute2
+stringdate = month2 + "-" + day2 + "-" + year2 + " " + hour2 + ":" + minute2
 
-var myDate = moment(stringdate);
+var myDate = moment(stringdate, "MM-DD-YYYY HH:mm");
 //window.alert(myDate.valueOf());
 
 //var since = myDate.getTime()/1000.0;
