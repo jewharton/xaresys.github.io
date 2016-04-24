@@ -208,7 +208,7 @@ var year2 = year1.value;
 var hour2 = hour1.value;
 var minute2 = minute1.value;
 
-if (month2 <= 0 || day2 <= 0 || year2 <= 0 || hour2 <= 0 || minute2 <= 0) {
+if (!month2 || !day2 || !year2 || !hour2 || !minute2) {
 var nono = "???"
 document.getElementById("demo1").innerHTML = nono;
 document.getElementById("demo2").innerHTML = nono;
