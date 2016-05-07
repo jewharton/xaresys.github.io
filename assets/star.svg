@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="star.svg">
+   sodipodi:docname="star-small.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -60,7 +60,7 @@
      transform="translate(0,-1020.3622)">
     <path
        style="fill:#FFFFFF;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 16,1022.3622 6,9 9,2 -7,8 1,10 -9,-5 -9,5 1,-10 -7,-8 9,-2 z"
+       d="m 16,1026.024 4.484772,6.7272 6.727158,1.4949 -5.232234,5.9797 0.747462,7.4746 L 16,1043.9631 l -6.7271582,3.7373 0.7474622,-7.4746 -5.2322343,-5.9797 6.7271583,-1.4949 z"
        id="path4140"
        inkscape:connector-curvature="0" />
   </g>
