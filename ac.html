@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Xaresys- Age Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://rawgithub.com/moment/moment/develop/moment.js"></script>
+
+<script type="text/javascript" src="https://rawgit.com/jquery/jquery-color/master/jquery.color.js"></script>
+
+<style>
+/* @font-face {
+    font-family: Spxl;
+    src: url(http://xaresys.github.io/assets/sp.ttf);
+} */
+
+body {
+background-image: url(http://xaresys.github.io/assets/bg.png);
+background-position: 0 0;
+}
+
+.header#h1{
+    width: 100%;
+    height: 50px;
+    background-color: #262626;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 0;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+}
+
+.header#h2{
+    width: 100%;
+    height: 50px;
+    background-color: #262626;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 0;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+}
+
+.box#box1{
+    width: 75%;
+    height: 300px;
+    background-color: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.box#box2{
+    width: 75%;
+    height: 300px;
+    background-color: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.cntnr#c1{
+    width: 100%;
+    height: 380px;
+    background-color: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 0;
+    overflow: hidden;
+    position: absolute;
+    display: block;
+    top: 69px;
+    right: 0;
+}
+
+.cntnr#c2{
+    width: 100%;
+    height: 975px;
+    background-color: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 0;
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+    left: 100%;
+    display: none;
+    top: 69px;
+    right: 0;
+}
+
+.box#txt{
+    width: 100%;
+    height: 8%;
+    background-color: none;
+    text-align: center;
+    overflow: hidden;
+}
+
+input[type=text]{
+    border: 3px solid rgba(65,193,255,0.2);
+    background-color: rgba(65,193,255, 0.2);
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    /* font-family: 'Spxl'; */
+}
+
+input[type=text]#month{
+    width: 17%;
+    height: 25%;
+    padding: 5px 5px;
+    margin: 2% 1%;
+    font-size:50px;
+}
+
+input[type=text]#day{
+    width: 20%;
+    height: 25%;
+    padding: 5px 5px;
+    margin: 2% 1%;
+    font-size:50px;
+}
+
+input[type=text]#year{
+    width: 30%;
+    height: 25%;
+    padding: 5px 5px;
+    margin: 2% 1%;
+    font-size:50px;
+}
+
+input[type=text]#hour{
+    width: 30%;
+    height: 25%;
+    padding: 5px 5px;
+    margin: 2% 1%;
+    font-size:50px;
+}
+
+input[type=text]#minute{
+    width: 30%;
+    height: 25%;
+    padding: 5px 5px;
+    margin: 2% 1%;
+    font-size:50px;
+}
+
+p#ut1{ /* UT stands for under text */
+    float:center;
+    margin:0px 7%;
+    display:inline-block;
+    font-family:verdana;
+    color: white;
+}
+
+p#ut2{
+    float:center;
+    margin:0px 14%;
+    display:inline-block;
+    font-family:verdana;
+    color: white;
+}
+
+p#ut3{
+    float:center;
+    margin:0px 15%;
+    display:inline-block;
+    font-family:verdana;
+    color: white;
+}
+
+p#ut4{ /* Second-page under text */
+    float:center;
+    margin:0 0;
+    display:inline-block;
+    font-family:verdana;
+    color: white;
+}
+
+#remember{
+    float:center;
+    margin:0px 7%;
+    display:block;
+    font-family:verdana;
+    color: white;
+    font-size:12px;
+}
+
+p#mid{
+    float:center;
+    margin:0px 0px;
+    display:inline-block;
+    font-family:verdana;
+    color: white;
+    font-size:300%;
+}
+
+
+label#am{
+    margin: 0 10%;
+    #width: 5%;
+}
+
+label#pm{
+    margin: 0 10%;
+    #width: 5%;
+}
+
+.demo { /* Main White Numbers */
+    font-size:350%;
+    text-align:center;
+    color:white;
+    vertical-align: middle;
+    margin: 1% 0;
+    font-family:verdana;
+}
+
+
+input[type=radio]{
+    display:none;
+}
+
+label#radium {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    margin-right: 70px;
+    margin-left: 70px;
+    #font-size: 13px;
+    font-family:verdana;
+    color: white;
+    font-size:100%;
+}
+
+label#radium:before { /* White Normal Ring */
+    content: "";
+    display: inline-block;
+ 
+    width: 27px;
+    height: 27px;
+ 
+    margin-right: 20px;
+    position: absolute;
+    left: -25px;
+    bottom: -11px;
+    #background-color: #aaa;
+    
+    border-radius: 40px;
+    border-color: #FFFFFF;
+    border-style: solid;
+    border-width: 9px;
+}
+
+/* input[type=radio]:checked + label#radium:before {
+    content: "\2605";
+    color: #f3f3f3;
+    font-size: 50px;
+    text-align: center;
+    line-height: 10px;
+
+    bottom: -11px;
+    left: -25px;
+    border-radius: 35px;
+    width: 12px;
+    height: 12px;
+    border-color: #ffe650;
+    border-style: solid;
+    border-width: 15px;
+    box-shadow: 
+    0 0 0 6px #FFFFFF;
+} */
+
+input[type=radio]:checked + label#radium:before { /* Yellow Ring */
+    #content: "";
+    color: #8496ff;
+    font-size: 50px;
+    text-align: left;
+    line-height: 40px;
+    vertical-align: central;
+
+    bottom: -11px;
+    left: -25px;
+    border-radius: 35px;
+    width: 25px;
+    height: 25px;
+    border-color: #ffe650;
+    border-style: solid;
+    border-width: 10px;
+    /*background-image: url(http://xaresys.github.io/assets/star.svg);
+    background-position: -4px -5px */
+}
+
+input[type=radio]:checked + label#radium:after { /* Star in the Middle */
+    background-image: url(http://xaresys.github.io/assets/star.svg), 
+    url(http://xaresys.github.io/assets/star-blue.svg);
+    background-size: 75%, 100%;
+    background-position: 5px 5px, 0px 0px;
+    content: " ";
+    left: -22px;
+    top: -17px;
+    position: absolute;
+    font-size: 55px;
+    width: 40px;
+    height: 40px;
+}
+
+
+
+button#next1 {
+    background-color:rgba(255,255,255,0.1);
+    /* background-image: url(http://xaresys.github.io/assets/emblem-icon.gif), url(http://xaresys.github.io/assets/emblem-icon.gif);
+    background-repeat: no-repeat;
+    background-position: 1% 50%, 99% 50%; */
+    color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 25%;
+    height: 12%;
+    /*margin: 10px;*/
+    margin-top: 15px;
+    font-family:verdana;
+}
+
+/* button#next1:hover {
+    background-color:rgba(255,255,255,0.3);
+    color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 20%;
+    height: 10%;
+}
+
+button#next1:active {
+    background-color:rgba(255,255,255,0);
+    color: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.3);
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 20%;
+    height: 10%;
+} */
+
+button#back1 {
+    background-color:rgba(255,255,255,0.1);
+    color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 25%;
+    height: 10%;
+    /*margin: 10px;*/
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    font-family:verdana;
+}
+
+
+#zz1 { /* ZigZag Border for Header */
+    height: 20px;
+    width: 100%;
+    background: #262626; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(135deg, #262626 33%, transparent 33%), -webkit-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: -o-linear-gradient(135deg, #262626 33%, transparent 33%), -o-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: -moz-linear-gradient(135deg, #262626 33%, transparent 33%), -moz-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: linear-gradient(135deg, #262626 33%, transparent 33%), linear-gradient(45deg, transparent 66%, #262626 66%);
+    background-size: 40px 80px, 40px 80px;
+    background-position: -10px -20px, -10px -20px;
+    background-repeat: repeat-x;
+    position:absolute;
+    z-index: 100;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    top: 50px;
+}
+
+#zz2 {
+    height: 20px;
+    width: 100%;
+    background: #262626; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(135deg, transparent 33%, #262626 33%), -webkit-linear-gradient(45deg, #262626 66%, transparent 66%);
+    background: -o-linear-gradient(135deg, #262626 33%, transparent 33%), -o-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: -moz-linear-gradient(135deg, #262626 33%, transparent 33%), -moz-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: linear-gradient(135deg, transparent 66.667%, #262626 66.667%), linear-gradient(45deg, #262626 33.333%, transparent 33.333%);
+    background-size: 40px 80px, 40px 80px;
+    background-position: -40px -40px, -40px -40px;
+    background-repeat: repeat-x;
+    position:absolute;
+    z-index: 100;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+}
+
+
+#zz3 { /* That, third, EXTRA footer for the 2nd page */
+    height: 20px;
+    width: 100%;
+    background: #262626; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(135deg, transparent 33%, #262626 33%), -webkit-linear-gradient(45deg, #262626 66%, transparent 66%);
+    background: -o-linear-gradient(135deg, #262626 33%, transparent 33%), -o-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: -moz-linear-gradient(135deg, #262626 33%, transparent 33%), -moz-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: linear-gradient(135deg, transparent 66.667%, #262626 66.667%), linear-gradient(45deg, #262626 33.333%, transparent 33.333%);
+    background-size: 40px 80px, 40px 80px;
+    background-position: -40px -40px, -40px -40px;
+    background-repeat: repeat-x;
+    position:absolute;
+    z-index: 100;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+}
+
+</style>
+
+<div class="header" id="h1">
+        <img src="http://xaresys.github.io/assets/emblem-icon.gif" alt="icon" width="29" height="18">
+        <p id="ut1" style="margin-top:5px; font-size:200%">Age Calculator</p>
+        <img src="http://xaresys.github.io/assets/emblem-icon.gif" alt="icon" width="29" height="18">
+        <div id="zz1"></div>
+</div>
+
+<div class="header" id="h2">
+        <div id="zz2"></div>
+        <p id="remember">© 2016 by Xaresys. All Rights Reserved.</p>
+        <a id="remember" href="http://xaresys.github.io/agecalc.html" style="color:#208AE1">Looking for the old Age Calculator?</p>
+</div>
+
+
+<div class="cntnr" id="c1">
+
+    <div class="box" id="box1">
+
+        <input type="text" id="month" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="2" />
+        <p id="mid">/</p>
+        <input type="text" id="day" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="2" />
+        <p id="mid">/</p>
+        <input type="text" id="year" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="4" />
+        <div id="txt" class="box">
+                <p id="ut1">Month</p>
+                <p id="ut2">Day</p>
+                <p id="ut3">Year</p>
+        </div>
+
+        <input type="text" id="hour" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="2" />
+        <p id="mid">:</p>
+        <input type="text" id="minute" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="2" />
+        
+        
+        <div id="txt" class="box">
+            <p id="ut2">Hour</p>
+            <p id="ut2">Minute</p>
+        </div>
+        
+        <p id="remember">* If you don't remember, leave empty.</p>
+
+        <br> <br>
+        <form>
+              <input type="radio" name="meridian" id="am" checked="checked">
+              <label for="am" id="radium">AM</label>
+              
+              <input type="radio" name="meridian" id="pm">
+              <label for="pm" id="radium">PM</label>
+        </form>
+
+
+        <button id="next1" class="btn" onclick="mainCode()">Continue</button>
+        
+    </div>
+</div>
+
+<div class="cntnr" id="c2">
+
+    <div class="box" id="box2">
+        
+        <button id="back1" onclick="mainCode()" class="btn">Back</button>
+        <br><br>
+
+        <p id="demo1" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Decades</p>
+        </div>
+        
+
+        <p id="demo2" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Years</p>
+        </div>
+
+
+        <p id="demo3" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Months</p>
+        </div>
+
+
+        <p id="demo4" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Weeks</p>
+        </div>
+
+        <p id="demo5" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Days</p>
+        </div>
+
+        <p id="demo6" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Hours</p>
+        </div>
+
+        <p id="demo7" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Minutes</p>
+        </div>
+
+        <p id="demo8" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Seconds</p>
+        </div>
+
+        <p id="demo9" class="demo">???</p>
+
+        <div id="txt" class="box">
+                <p id="ut1">Milliseconds</p>
+        <!-- </div> <div id="zz3"></div> -->
+        
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+$(document).ready(function(){
+    $("button#next1").click(function(){
+        $("div#c1").animate({right: '100%', opacity: '0'}, 700);
+        $("div#c2").animate({left: '0%', opacity: '1'}, 700);
+        $("div#c2").css('display','block');
+        $("#h2").animate({bottom: '-575px'});
+        setTimeout(c1disappear, 700)
+    });
+    
+    $("button#back1").click(function(){
+        $("div#c1").animate({right: '0%', opacity: '1'}, 700);
+        $("div#c2").animate({left: '100%', opacity: '0'}, 700);
+        $("div#c1").css('display','block');
+        $("#h2").animate({bottom: '0'});
+        setTimeout(c2disappear, 700)
+    });
+    /*$("button#next1").stop(true,true).delay(20).mouseenter(function(){
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0.3)'}, 100);
+    });
+    $("button#next1")).stop(true,true).delay(20).mouseleave(function(){
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0.1)'}, 100);
+    });*/
+    $("button#next1").hover(function(){
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0.3)'}, 100);
+        }, function(){
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0.1)'}, 100);
+    });
+    $("button#next1").mousedown(function(){
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0)', color: 'rgba(255,255,255,0.3)', borderColor: 'rgba(255,255,255,0.3)'}, 100);
+    });
+    $("button#next1").mouseup(function(){
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,1)', borderColor: 'rgba(255,255,255,1)'}, 100);
+    });
+    $("button#next1").mouseleave(function(){
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,1)', borderColor: 'rgba(255,255,255,1)'}, 100);
+    });
+
+    if($("#next1").prop("disabled", true)) {
+        console.log("DISSED!");
+    }
+
+    $("button#back1").hover(function(){
+        $("button#back1").animate({backgroundColor: 'rgba(255,255,255,0.3)'}, 100);
+        }, function(){
+        $("button#back1").animate({backgroundColor: 'rgba(255,255,255,0.1)'}, 100);
+    });
+    $("button#back1").mousedown(function(){
+        $("button#back1").animate({backgroundColor: 'rgba(255,255,255,0)', color: 'rgba(255,255,255,0.3)', borderColor: 'rgba(255,255,255,0.3)'}, 100);
+    });
+    $("button#back1").mouseup(function(){
+        $("button#back1").animate({backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,1)', borderColor: 'rgba(255,255,255,1)'}, 100);
+    });
+    $("button#back1").mouseleave(function(){
+        $("button#back1").animate({backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,1)', borderColor: 'rgba(255,255,255,1)'}, 100);
+    });
+
+
+
+//Month
+
+    $("input#month").focus(function(){
+        $("input#month").animate({borderColor: 'rgba(65,193,255,1)', backgroundColor: 'rgba(65,193,255, 0.6)'}, 300);
+    });
+    $("input#month").focusout(function(){
+        $("input#month").animate({borderColor: 'rgba(65,193,255,0.2)', backgroundColor: 'rgba(65,193,255, 0.2)'}, 300);
+    });
+
+//Day
+
+    $("input#day").focus(function(){
+        $("input#day").animate({borderColor: 'rgba(65,193,255,1)', backgroundColor: 'rgba(65,193,255, 0.6)'}, 300);
+    });
+    $("input#day").focusout(function(){
+        $("input#day").animate({borderColor: 'rgba(65,193,255,0.2)', backgroundColor: 'rgba(65,193,255, 0.2)'}, 300);
+    });
+
+//Year
+
+    $("input#year").focus(function(){
+        $("input#year").animate({borderColor: 'rgba(65,193,255,1)', backgroundColor: 'rgba(65,193,255, 0.6)'}, 300);
+    });
+    $("input#year").focusout(function(){
+        $("input#year").animate({borderColor: 'rgba(65,193,255,0.2)', backgroundColor: 'rgba(65,193,255, 0.2)'}, 300);
+    });
+
+//Hour
+
+    $("input#hour").focus(function(){
+        $("input#hour").animate({borderColor: 'rgba(65,193,255,1)', backgroundColor: 'rgba(65,193,255, 0.6)'}, 300);
+    });
+    $("input#hour").focusout(function(){
+        $("input#hour").animate({borderColor: 'rgba(65,193,255,0.2)', backgroundColor: 'rgba(65,193,255, 0.2)'}, 300);
+    });
+
+//Minute
+
+    $("input#minute").focus(function(){
+        $("input#minute").animate({borderColor: 'rgba(65,193,255,1)', backgroundColor: 'rgba(65,193,255, 0.6)'}, 300);
+    });
+    $("input#minute").focusout(function(){
+        $("input#minute").animate({borderColor: 'rgba(65,193,255,0.2)', backgroundColor: 'rgba(65,193,255, 0.2)'}, 300);
+    });
+
+});
+
+function c1disappear() {
+$("div#c1").css('display','none');
+}
+
+function c2disappear() {
+$("div#c2").css('display','none');
+}
+
+
+function mainCode() {
+var month1 = document.getElementById("month");
+var day1 = document.getElementById("day");
+var year1 = document.getElementById("year");
+var hour1 = document.getElementById("hour");
+var minute1 = document.getElementById("minute");
+var month2 = month1.value;
+var day2 = day1.value;
+var year2 = year1.value;
+var hour2 = hour1.value;
+var minute2 = minute1.value;
+
+if(document.getElementById('am').checked) {
+  var ampm = "AM"
+}else if(document.getElementById('pm').checked) {
+  var ampm = "PM"
+}
+
+
+if (!month2 || !day2 || !year2) {
+var nono = "???"
+document.getElementById("demo1").innerHTML = nono;
+document.getElementById("demo2").innerHTML = nono;
+document.getElementById("demo3").innerHTML = nono;
+document.getElementById("demo4").innerHTML = nono;
+document.getElementById("demo5").innerHTML = nono;
+document.getElementById("demo6").innerHTML = nono;
+document.getElementById("demo7").innerHTML = nono;
+document.getElementById("demo8").innerHTML = nono;
+document.getElementById("demo9").innerHTML = nono;
+document.getElementById("next1").disabled = true;
+return;
+}else {
+document.getElementById("next1").disabled = false;
+}
+
+
+if (!hour2) {
+hour2 = "00";
+}
+
+if (!minute2) {
+minute2 = "00";
+}
+
+if (!hour1.value || !minute1.value) {
+    stringdate = month2 + "-" + day2 + "-" + year2 + " " + hour2 + ":" + minute2;
+    var myDate = moment(stringdate, "MM-DD-YYYY HH:mm");
+}else {
+    stringdate = month2 + "-" + day2 + "-" + year2 + " " + hour2 + ":" + minute2 + ampm;
+    var myDate = moment(stringdate, "MM-DD-YYYY hh:mm A");
+}
+
+
+
+/*stringdate = month2 + "-" + day2 + "-" + year2 + " " + hour2 + ":" + minute2 + ampm;
+var myDate = moment(stringdate, "MM-DD-YYYY hh:mm A"); */
+//window.alert(myDate.valueOf());
+//var since = myDate.getTime()/1000.0;
+var since = myDate.valueOf();
+//var since = 979371240000;
+var d = moment();
+var d2 = d.valueOf();
+var d3 = (d2 - since);
+var milli = d3;
+var secs = Math.floor(milli / 1000);
+var mins = Math.floor(milli / 60000);
+var hours = Math.floor(milli / 3600000);
+var days = Math.floor(milli / 86400000);
+var weeks = Math.floor(milli / 604800000);
+var months = Math.floor(milli / 2629743830);
+var years = Math.floor(milli / 31556926000);
+var decades = Math.floor(milli / 315569259747);
+document.getElementById("demo1").innerHTML = decades;
+document.getElementById("demo2").innerHTML = years;
+document.getElementById("demo3").innerHTML = months;
+document.getElementById("demo4").innerHTML = weeks;
+document.getElementById("demo5").innerHTML = days;
+document.getElementById("demo6").innerHTML = hours;
+document.getElementById("demo7").innerHTML = mins;
+document.getElementById("demo8").innerHTML = secs;
+document.getElementById("demo9").innerHTML = milli;
+}
+setInterval(mainCode, 50);
+
+</script>
+
+</body>
+</html>
