@@ -450,9 +450,13 @@ button#back1 {
 
 </style>
 
+
+
+
+
 <div class="header" id="h1">
         <img src="http://xaresys.github.io/assets/emblem-icon.gif" alt="icon" width="29" height="18">
-        <p id="ut1" style="margin-top:5px; font-size:200%">Age Calculator</p>
+        <p id="ut1" style="margin-top:5px; font-size:200%; margin: 0 1%">Age Calculator</p>
         <img src="http://xaresys.github.io/assets/emblem-icon.gif" alt="icon" width="29" height="18">
         <div id="zz1"></div>
 </div>
@@ -546,25 +550,25 @@ button#back1 {
                 <p id="ut1">Days</p>
         </div>
 
-        <p id="demo6" class="demo">???</p>
+        <p id="demo6" class="demo"  style="font-size:300%">???</p>
 
         <div id="txt" class="box">
                 <p id="ut1">Hours</p>
         </div>
 
-        <p id="demo7" class="demo">???</p>
+        <p id="demo7" class="demo" style="font-size:260%">???</p>
 
         <div id="txt" class="box">
                 <p id="ut1">Minutes</p>
         </div>
 
-        <p id="demo8" class="demo" style="font-size:300%">???</p>
+        <p id="demo8" class="demo" style="font-size:225%">???</p>
 
         <div id="txt" class="box">
                 <p id="ut1">Seconds</p>
         </div>
 
-        <p id="demo9" class="demo" style="font-size:250%">???</p>
+        <p id="demo9" class="demo" style="font-size:180%">???</p>
 
         <div id="txt" class="box">
                 <p id="ut1">Milliseconds</p>
@@ -586,7 +590,7 @@ $(document).ready(function(){
         $("div#c1").animate({right: '100%', opacity: '0'}, 700);
         $("div#c2").animate({left: '0%', opacity: '1'}, 700);
         $("div#c2").css('display','block');
-        $("#h2").animate({bottom: '-575px'});
+        $("#h2").animate({bottom: '-102%'});
         setTimeout(c1disappear, 700)
     });
     
@@ -618,9 +622,9 @@ $(document).ready(function(){
         $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,1)', borderColor: 'rgba(255,255,255,1)'}, 100);
     });
 
-    if($("#next1").prop("disabled", true)) {
+    /* if($("#next1").prop("disabled", true)) {
         console.log("DISSED!");
-    }
+    } */
 
     $("button#back1").hover(function(){
         $("button#back1").animate({backgroundColor: 'rgba(255,255,255,0.3)'}, 100);
