@@ -50,7 +50,8 @@ background-position: 0 0;
     padding: 0 0;
     position: absolute;
     display: block;
-    bottom: 0;
+    /* bottom: 0; */
+    top: 467px;
     right: 0;
     z-index: 100;
 }
@@ -593,7 +594,7 @@ $(document).ready(function(){
         $("div#c1").animate({right: '100%', opacity: '0'}, 700);
         $("div#c2").animate({left: '0%', opacity: '1'}, 700);
         $("div#c2").css('display','block');
-        $("#h2").animate({bottom: '-102%'});
+        $("#h2").animate({top: '995px'});
         setTimeout(c1disappear, 700)
     });
     
@@ -701,6 +702,10 @@ function c2disappear() {
 $("div#c2").css('display','none');
 }
 
+if($("#next1").prop("disabled", true)) {
+        $("button#next1").animate({backgroundColor: 'rgba(255,255,255,0)', color: 'rgba(255,255,255,0.3)', borderColor: 'rgba(255,255,255,0.3)'}, 1);
+}
+
 
 function mainCode() {
 var month1 = document.getElementById("month");
@@ -715,9 +720,9 @@ var hour2 = hour1.value;
 var minute2 = minute1.value;
 
 if(document.getElementById('am').checked) {
-  var ampm = "AM"
+  var ampm = "AM";
 }else if(document.getElementById('pm').checked) {
-  var ampm = "PM"
+  var ampm = "PM";
 }
 
 
