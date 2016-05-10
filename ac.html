@@ -32,7 +32,7 @@ min-height:100%;
     margin-right: auto;
     text-align: center;
     padding: 0 0;
-    position: absolute;
+    position: fixed;
     display: block;
     top: 0;
     right: 0;
@@ -46,7 +46,7 @@ min-height:100%;
     margin-right: auto;
     text-align: center;
     padding: 0 0;
-    position: absolute;
+    position: fixed;
     display: block;
     bottom: 0;
     /*top: 467px;*/
@@ -571,7 +571,7 @@ $(document).ready(function(){
         $("div#c1").animate({right: '100%', opacity: '0'}, 700);
         $("div#c2").animate({left: '0%', opacity: '1'}, 700);
         $("div#c2").css('display','block');
-        $("#h2").animate({bottom: '-527px'});
+        /* $("#h2").animate({bottom: '-1px'}); */
         setTimeout(c1disappear, 700)
     });
     
