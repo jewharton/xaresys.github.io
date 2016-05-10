@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="868686">
+
+<style>
+body {
+background-image: url(http://xaresys.github.io/assets/bg.png);
+background-position: 0 0;
+}
+
+#remember{
+    float:center;
+    margin:0px 7%;
+    display:block;
+    font-family:verdana;
+    color: white;
+    font-size:12px;
+}
+
+.header#h1{
+    width: 100%;
+    height: 50px;
+    background-color: #262626;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 0;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+.header#h2{
+    width: 100%;
+    height: 50px;
+    background-color: #262626;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 0;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.box#box1{
+    width: 100%;
+    height: 300px;
+    background-color: none;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    padding: -10px -10px;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.cntnr#c1{
+    width: 100%;
+    height: 380px;
+    background-color: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 0;
+    position: absolute;
+    display: block;
+    top: 69px;
+    right: 0;
+    overflow: visible;
+}
+
+p#ut1{ /* UT stands for under text */
+    float:center;
+    margin:20% 7%;
+    display:inline-block;
+    font-family:verdana;
+    color: white;
+    margin-bottom: 7px;
+}
+
+#zz1 { /* ZigZag Border for Header */
+    height: 20px;
+    width: 100%;
+    background: #262626; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(135deg, #262626 33%, transparent 33%), -webkit-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: -o-linear-gradient(135deg, #262626 33%, transparent 33%), -o-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: -moz-linear-gradient(135deg, #262626 33%, transparent 33%), -moz-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: linear-gradient(135deg, #262626 33%, transparent 33%), linear-gradient(45deg, transparent 66%, #262626 66%);
+    background-size: 40px 80px, 40px 80px;
+    background-position: -10px -20px, -10px -20px;
+    background-repeat: repeat-x;
+    position:absolute;
+    z-index: 100;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    top: 50px;
+}
+#zz2 {
+    height: 20px;
+    width: 100%;
+    background: #262626; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(135deg, transparent 33%, #262626 33%), -webkit-linear-gradient(45deg, #262626 66%, transparent 66%);
+    background: -o-linear-gradient(135deg, #262626 33%, transparent 33%), -o-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: -moz-linear-gradient(135deg, #262626 33%, transparent 33%), -moz-linear-gradient(45deg, transparent 66%, #262626 66%);
+    background: linear-gradient(135deg, transparent 66.667%, #262626 66.667%), linear-gradient(45deg, #262626 33.333%, transparent 33.333%);
+    background-size: 40px 80px, 40px 80px;
+    background-position: -40px -40px, -40px -40px;
+    background-repeat: repeat-x;
+    position:absolute;
+    z-index: 100;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+}
+
+button#next1 {
+    background-color:rgba(255,255,255,0.1);
+    /* background-image: url(http://xaresys.github.io/assets/emblem-icon.gif), url(http://xaresys.github.io/assets/emblem-icon.gif);
+    background-repeat: no-repeat;
+    background-position: 1% 50%, 99% 50%; */
+    color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 25%;
+    height: 15%;
+    /*margin: 10px;*/
+    margin-top: 15px;
+    font-family:verdana;
+}
+
+button#next1:hover {
+    background-color:rgba(255,255,255,0.3);
+    color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 25%;
+    height: 15%;
+}
+button#next1:active {
+    background-color:rgba(255,255,255,0);
+    color: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.3);
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 25%;
+    height: 15%;
+}
+
+</style>
+
+<div class="header" id="h1">
+        <img src="http://xaresys.github.io/assets/emblem-icon.gif" alt="icon" width="29" height="18">
+        <p id="ut1" style="margin-top:5px; font-size:200%; margin: 0 1%">Xaresys - Home Page</p>
+        <img src="http://xaresys.github.io/assets/emblem-icon.gif" alt="icon" width="29" height="18">
+        <div id="zz1"></div>
+</div>
+
+
+
+<div class="header" id="h2">
+        <div id="zz2"></div>
+        <p id="remember">© 2016 by Xaresys. All Rights Reserved.</p>
+</div>
+
+<br><br><br><br>
+<p id="ut1" style="margin: 0 auto; display:block; text-align: center">Looking for my...</p>
+
+<button id="next1" class="btn" a href="ac.html" style="margin: 5px auto; display:block">Age Calculator?</button>
+</a>
+
+</div>
+</div>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+</body>
+</html>
