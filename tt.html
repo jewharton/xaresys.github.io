@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <!--- gotten from: stackoverflow.com/questions/23088063/how-to-pass-values-from-javascript-to-html --->
+      
+      <title>Multiplication Table Generator</title>
+      <script language="javascript" type="text/javascript">
+         function generateTable()
+         {
+          //var myVar = prompt("A number?", "");
+          var myVar = document.forms.multTables.x.value;
+          var myVar2 = document.forms.multTables.y.value;
+          var myString = "<tr><th>"+ myVar + " Times Tables</th></tr>";
+          for (i=1; i<=myVar2; i++) 
+          {
+             myString += "<tr><td>";
+            myString += i+ " x " +myVar+ " = " +(i*myVar)+ "\n";
+            myString += "</td></tr>";
+          }
+          document.getElementById('t').innerHTML = myString;
+          return false;
+         }
+         
+      </script>
+   </head>
+   <body>
+      <h1>Times Tables</h1>
+      <form name="multTables">
+         Enter a number: <input type="text" name="number" id="x"><br>
+         How many results?: <input type="text" name="number" id="y"><br>
+         <input type="button" name="button1"  value="Show Table" onclick="generateTable()"><p>&nbsp;</p>
+         <table border="1" id="t">
+         </table>
+      </form>
+   </body>
+</html>
