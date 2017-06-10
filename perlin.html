@@ -16,7 +16,7 @@
 	}
     
     input {
-    	padding: 5;
+    	padding: 3;
     }
     
     [sidebyside=true] {
@@ -39,10 +39,14 @@
         <input id='canvx' type='number' value='256' sidebyside="true" /><br/><br/>
         <p id="text" sidebyside="true">Y:</p>
         <input id='canvy' type='number' value='256' sidebyside="true" /><br/><br/><br/>
+        <p id="text">Noise size multiplier:</p>
+        <p id="text" sidebyside="true">X:</p>
+        <input id='multx' type='number' value='1' sidebyside="true" /><br/><br/>
+        <p id="text" sidebyside="true">Y:</p>
+        <input id='multy' type='number' value='1' sidebyside="true" /><br/><br/><br/>
+        
         
 		<input type='button' value='Start' onclick="javascript:Start();"></input>
-		<input type='button' value='Stop' onclick="javascript:Stop();"></input>
-		<input type='button' value='Reset' onclick="javascript:Reset();"></input>
 	</div>
     
     
@@ -87,16 +91,30 @@ function Reset(){
     UpdateImg('canvas');
 }*/
 
+function randomInterval(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+document.getElementById("seed").value = randomInterval(0, 4294967296)
+
 var UpdateImg = function(id){
     var canvas = document.getElementById(id);
     var width = canvas.width;
     var height = canvas.height;
     
+    //Noise size multiplier
+    var multx = document.getElementById("multx").value;
+    var multy = document.getElementById("multy").value;
+    
     var ctx = canvas.getContext('2d');
     var imgData = ctx.getImageData(0,0,width,height);
     
-    var wDiv = 1 / width;
-    var hDiv = 1 / height;
+    //var wDiv = 1 / width;
+    //var hDiv = 1 / height;
+    var wDiv = (1 / width)/multx;
+    var hDiv = (1 / height)/multy;
+    
     var zDiv = 1 / 64;
     
     for(var i = 0; i < imgData.data.length; i += 4){
