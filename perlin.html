@@ -60,6 +60,10 @@ var z = 0; //What is this for???
 var seed = 0;
 
 function Start(){
+	
+    document.getElementById('canvas').width = document.getElementById('canvx').value;
+    document.getElementById('canvas').height = document.getElementById('canvy').value;
+    
     seed = document.getElementById('seed').value * 1;
     noise = new ImprovedPerlin(seed);
     
@@ -135,11 +139,11 @@ var UpdateImg = function(id){
         
         var density = 0;
         
-        for (i=1; i < detail+1; i++) {
-				var firstnum = detail+1-i;
-				var othernum = i+1;
+        for (n=1; n < detail+1; n++) {
+				var firstnum = 2^(detail+1-n);
+				var othernum = 2^(n+1);
 				
-				density += (2^firstnum) * noise.Noise(othernum * x * wDiv, othernum * y * hDiv, z * zDiv);	
+				density += firstnum * noise.Noise(othernum * x * wDiv, othernum * y * hDiv, z * zDiv);
         };
         
         var val = 128 + density;
@@ -152,7 +156,7 @@ var UpdateImg = function(id){
     
     ctx.putImageData(imgData, 0, 0);
     z++;
-};
+}
 
 function Rand(seed){
     this.m_w = seed;
