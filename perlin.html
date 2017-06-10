@@ -107,6 +107,8 @@ var UpdateImg = function(id){
     var multx = document.getElementById("multx").value;
     var multy = document.getElementById("multy").value;
     
+    var detail = document.getElementById("detail").value;
+    
     var ctx = canvas.getContext('2d');
     var imgData = ctx.getImageData(0,0,width,height);
     
@@ -121,12 +123,25 @@ var UpdateImg = function(id){
         var x = (i / 4) % width;
         var y = (i / 4) / width;
         
+        /*
         var density = 64 * noise.Noise(4 * x * wDiv, 4 * y * hDiv, z * zDiv) +
                       32 * noise.Noise(8 * x * wDiv, 8 * y * hDiv, z * zDiv) +
                       16 * noise.Noise(16 * x * wDiv, 16 * y * hDiv, z * zDiv) +
                       8 * noise.Noise(32 * x * wDiv, 32 * y * hDiv, z * zDiv) +
                       4 * noise.Noise(64 * x * wDiv, 64 * y * hDiv, z * zDiv) +
                       2 * noise.Noise(128 * x * wDiv, 128 * y * hDiv, z * zDiv);
+        */
+        
+        var density = 0;
+        
+        for (i=1; i < 2^detail+1; i++) {
+				var firstnum = detail+1-i				
+				var othernum = i+1
+				
+				density += (2^firstnum) *
+							noise.Noise(othernum * x * wDiv, othernum * y * hDiv, z * zDiv);
+				
+        }
         
         var val = 128 + density;
         
