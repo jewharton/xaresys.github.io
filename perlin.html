@@ -1,0 +1,207 @@
+<html>
+
+<head>
+	<title>Xaresys - Perlin Noise Generator</title>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
+</head>
+
+<body>
+	<style>
+	p[id=text] {
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
+        padding: 5;
+	}
+    
+    input {
+    	padding: 5;
+    }
+    
+    [sidebyside=true] {
+    	float: left;
+    }
+    
+    </style>
+    
+	<div id="container">
+		<canvas id="canvas" width="128" height="128"></canvas>
+        
+        <p id="text">Random seed:</p>
+        <input id='seed' type='number' value='1' /><br/><br/>
+		
+        <p id="text">Detail:</p>
+        <input id='detail' type='number' value='1' /><br/><br/>
+        
+        <p id="text">Canvas Size:</p>
+        <p id="text" sidebyside="true">X:</p>
+        <input id='canvx' type='number' value='256' sidebyside="true" /><br/><br/>
+        <p id="text" sidebyside="true">Y:</p>
+        <input id='canvy' type='number' value='256' sidebyside="true" /><br/><br/><br/>
+        
+		<input type='button' value='Start' onclick="javascript:Start();"></input>
+		<input type='button' value='Stop' onclick="javascript:Stop();"></input>
+		<input type='button' value='Reset' onclick="javascript:Reset();"></input>
+	</div>
+    
+    
+	<script type="text/javascript">
+
+// ------------------------------------------------------------------
+
+var noise;
+var z = 0; //What is this for???
+//var myTimer = 0;
+var seed = 0;
+
+function Start(){
+    seed = document.getElementById('seed').value * 1;
+    noise = new ImprovedPerlin(seed);
+    
+    UpdateImg('canvas');
+    
+    //I don't need the looping function
+    /*
+    function Loop(){
+        UpdateImg('canvas');
+    }
+    
+    myTimer = setInterval(Loop, 50);
+    */
+}
+
+/* function Stop(){
+    clearInterval(myTimer);
+}
+
+function Reset(){
+    z = 0;
+    var newSeed = document.getElementById('seed').value * 1;
+    
+    if(newSeed != seed){
+        seed = newSeed;
+        noise = new ImprovedPerlin(seed);
+    }
+    
+    UpdateImg('canvas');
+}*/
+
+var UpdateImg = function(id){
+    var canvas = document.getElementById(id);
+    var width = canvas.width;
+    var height = canvas.height;
+    
+    var ctx = canvas.getContext('2d');
+    var imgData = ctx.getImageData(0,0,width,height);
+    
+    var wDiv = 1 / width;
+    var hDiv = 1 / height;
+    var zDiv = 1 / 64;
+    
+    for(var i = 0; i < imgData.data.length; i += 4){
+        var x = (i / 4) % width;
+        var y = (i / 4) / width;
+        
+        var density = 64 * noise.Noise(4 * x * wDiv, 4 * y * hDiv, z * zDiv) +
+                      32 * noise.Noise(8 * x * wDiv, 8 * y * hDiv, z * zDiv) +
+                      16 * noise.Noise(16 * x * wDiv, 16 * y * hDiv, z * zDiv) +
+                      8 * noise.Noise(32 * x * wDiv, 32 * y * hDiv, z * zDiv) +
+                      4 * noise.Noise(64 * x * wDiv, 64 * y * hDiv, z * zDiv) +
+                      2 * noise.Noise(128 * x * wDiv, 128 * y * hDiv, z * zDiv);
+        
+        var val = 128 + density;
+        
+        imgData.data[i] = val; //Red
+        imgData.data[i + 1] = val; //Green
+        imgData.data[i + 2] = val; //Blue
+        imgData.data[i + 3] = 255; //Alpha
+    }
+    
+    ctx.putImageData(imgData, 0, 0);
+    z++;
+};
+
+function Rand(seed){
+    this.m_w = seed;
+    this.m_z = 987654321;
+    this.mask = 0xffffffff;
+    
+    this.Next = function (){
+        this.m_z = (36969 * (this.m_z & 65535) + (this.m_z >> 16)) & this.mask;
+        this.m_w = (18000 * (this.m_w & 65535) + (this.m_w >> 16)) & this.mask;
+        var result = ((this.m_z << 16) + this.m_w) & this.mask;
+        result /= 4294967296;
+        return result + 0.5;
+    };
+}
+
+function ImprovedPerlin(seed){
+    this.p = new Array(512);
+    this.rand = new Rand(seed);
+    
+    for(var i = 0; i < 256; i++)
+        this.p[i] = i;
+    
+    for(var i = 255; i > 0; i--){
+        var j = Math.floor(this.rand.Next() * (i + 1));
+        var tmp = this.p[j];
+        this.p[j] = this.p[i];
+        this.p[i] = tmp;
+        this.p[i + 256] = this.p[i];
+        this.p[j + 256] = this.p[j];
+    }
+    
+    this.Fade = function(t){
+        return t * t * t * (t * (t * 6 - 15) + 10);
+    };
+    
+    this.Lerp = function(t, a, b){
+        return a + t * (b - a);
+    };
+    
+    this.Grad = function(hash, x, y, z){
+        var h = hash & 15;
+        var u = h < 8 ? x : y;
+        var v = h < 4 ? y : h == 12 || h == 14 ? x : z;
+        
+        return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
+    };
+    
+    this.Noise = function (x, y, z){
+        var X = Math.floor(x & 255);
+        var Y = Math.floor(y & 255);
+        var Z = Math.floor(z & 255);
+        
+        x = x - Math.floor(x);
+        y = y - Math.floor(y);
+        z = z - Math.floor(z);
+        
+        var u = this.Fade(x);
+        var v = this.Fade(y);
+        var w = this.Fade(z);
+        
+        var A = this.p[X] + Y;
+        var AA = this.p[A] + Z;
+        var AB = this.p[A + 1] + Z;
+        var B = this.p[X + 1] + Y;
+        var BA = this.p[B] + Z;
+        var BB = this.p[B + 1] + Z;
+        
+        var value = this.Lerp(w, this.Lerp(v, this.Lerp(u, this.Grad(this.p[AA],     x,   y,   z),
+                                                           this.Grad(this.p[BA],     x-1, y,   z)),
+                                              this.Lerp(u, this.Grad(this.p[AB],     x,   y-1, z),
+                                                           this.Grad(this.p[BB],     x-1, y-1, z))),
+                                 this.Lerp(v, this.Lerp(u, this.Grad(this.p[AA + 1], x,   y,   z-1),
+                                                           this.Grad(this.p[BA + 1], x-1, y,   z-1)),
+                                              this.Lerp(u, this.Grad(this.p[AB + 1], x,   y-1, z-1),
+                                                           this.Grad(this.p[BB + 1], x-1, y-1, z-1))));
+        
+        return value;
+    };
+}
+// ------------------------------------------------------------------	
+	</script>
+</body>
+
+</html>
