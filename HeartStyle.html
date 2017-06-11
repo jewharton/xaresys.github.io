@@ -4,55 +4,67 @@
 
 <style>
 
-[navbar=regular] {
+[metabar=regular] {
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,eaf2f9+90,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
 	background: -moz-linear-gradient(top, #acc7e4 0%, #eaf2f9 90%, #acc7e4 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #acc7e4 0%,#eaf2f9 90%,#acc7e4 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, #acc7e4 0%,#eaf2f9 90%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#acc7e4',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#eaf2f9',GradientType=0 ); /* IE6-9 */
 }
 
-[navbar=hover] {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,acc7e4+100 */
-	background: #acc7e4; /* Old browsers */
-	background: -moz-linear-gradient(top, #acc7e4 0%, #acc7e4 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, #acc7e4 0%,#acc7e4 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, #acc7e4 0%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#acc7e4',GradientType=0 ); /* IE6-9 */
+[metabar=hover] {
+	background: #acc7e4;
 }
 
-[navbar=pressed] {
+[metabar=pressed] {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,75a1d2+10,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
 	background: -moz-linear-gradient(top, #acc7e4 0%, #75a1d2 10%, #acc7e4 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #acc7e4 0%,#75a1d2 10%,#acc7e4 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, #acc7e4 0%,#75a1d2 10%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#acc7e4',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75a1d2', endColorstr='#acc7e4',GradientType=0 ); /* IE6-9 */
 }
 
 /* Hover ------------------------------------------------------------------ */
 
-[navbar=login] {
+[metabar=login-regular] {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,75a1d2+90,acc7e4+100 */
+	background: #acc7e4; /* Old browsers */
+	background: -moz-linear-gradient(top, #acc7e4 0%, #75a1d2 90%, #acc7e4 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #acc7e4 0%,#75a1d2 90%,#acc7e4 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #acc7e4 0%,#75a1d2 90%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#75a1d2',GradientType=0 ); /* IE6-9 */
+}
 
+[metabar=login-hover] {
+	background: #75a1d2;
+}
 
+[metabar=login-pressed] {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#75a1d2+0,1a71ce+10,75a1d2+100 */
+	background: #75a1d2; /* Old browsers */
+	background: -moz-linear-gradient(top, #75a1d2 0%, #1a71ce 10%, #75a1d2 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #75a1d2 0%,#1a71ce 10%,#75a1d2 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #75a1d2 0%,#1a71ce 10%,#75a1d2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1A71CE', endColorstr='#75a1d2',GradientType=0 ); /* IE6-9 */
+}
+
+/* New metabar ------------------------------------------------------------------------------------- */
+
+ul[id=new_metabar] {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 </style>
 
 
-<b>Normal Navbar</b>
-<p>Regular</p>
-
-<div navbar="regular" style="width: 50px; height: 50px;"></div>
-
-<p>hover</p>
-
-<div navbar="hover" style="width: 50px; height: 50px;"></div>
-
-<p>pressed</p>
-
-<div navbar="pressed" style="width: 50px; height: 50px;"></div>
+<ul id="new_metabar" metabar="regular">
+    <p> hi </p>
+</ul>
 
 </body>
 </html>
