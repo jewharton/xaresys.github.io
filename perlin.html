@@ -79,6 +79,7 @@ function Start(){
     */
 }
 
+
 /* function Stop(){
     clearInterval(myTimer);
 }
@@ -140,8 +141,8 @@ var UpdateImg = function(id){
         var density = 0;
         
         for (n=1; n < detail+1; n++) {
-				var firstnum = 2^(detail+1-n);
-				var othernum = 2^(n+1);
+				var firstnum = Math.pow(2, (detail+1-n));
+				var othernum = Math.pow(2, (n+1));
 				
 				density += firstnum * noise.Noise(othernum * x * wDiv, othernum * y * hDiv, z * zDiv);
         };
@@ -236,6 +237,9 @@ function ImprovedPerlin(seed){
         return value;
     };
 }
+
+Start()
+
 // ------------------------------------------------------------------	
 	</script>
 </body>
