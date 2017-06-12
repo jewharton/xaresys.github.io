@@ -42,7 +42,6 @@ div[id=new_metabar] {
 ul[id=meta_container] {
 	margin: auto;
     padding: inherit;
-    min-width: 200px;
     max-width: 500px;
     position: absolute;
     left: 0;
@@ -130,6 +129,11 @@ li[class=loginbutton]:active {
 li[class=loginbutton]:hover {
 	background: #75a1d2;
 }
+
+li[class=metaitem] a, li[class=loginbutton] a {
+	text-decoration: none;
+    color: inherit;
+}
 /* Ribbons ------------------------------------------------------------------------------*/
 
 /* https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201.png
@@ -141,27 +145,21 @@ li[class=loginbutton]:hover {
     display: inline-block;
     float: left;
     z-index: 1;
-    width: 185px;
+    width: 184px;
     height: 169px;
 }
 
 [id="ribbon1"] {
 	position: absolute;
-    background-image: url("https://github.com/xaresys/xaresys.github.io/blob/master/HeartStyle/logo%20ribbon%201%20small.png?raw=true");
-    background-repeat: no-repeat;
     z-index: 2;
-    /*background-size: contain;*/
-    width: inherit;
-    height: inherit;
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+    filter:         drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2)); 
 }
 
 [id="ribbon2"] {
 	position: absolute;
-    background-image: url("https://github.com/xaresys/xaresys.github.io/blob/master/HeartStyle/logo%20ribbon%202%20small.png?raw=true");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: inherit;
-    height: inherit;
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+    filter:         drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2)); 
 }
 
 /* ----------------------------------------------------------------------------------*/
@@ -169,7 +167,13 @@ li[class=loginbutton]:hover {
 /* Gotta love mobile... >_> */
 @media screen and (max-width: 600px){
     /* Stuff here, like stretching the navigation links */
+    li[class="metaitem"], li[class="loginbutton"], li[id="heartribbon"] {
+    	display: none;
+    }
 }
+
+
+
 
 </style>
 
@@ -178,20 +182,14 @@ li[class=loginbutton]:hover {
 	<ul id="meta_container">
     	<!--<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>-->
         <li id="heartribbon">
-        	<div id="ribbon1">
-            	<img src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201.png" style="visibility: hidden;">
-            </div>
+        	<img id="ribbon1" src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201%20small.png"></img>
             
-            <div id="ribbon2">
-            	<img src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%202.png" style="visibility: hidden;">
-            </div>
-            
-            
+            <img id="ribbon2" src="https://github.com/xaresys/xaresys.github.io/blob/master/HeartStyle/logo%20ribbon%202%20small.png?raw=true"></img>
         </li>
-    	<li class="metaitem">Join</li>
-    	<li class="metaitem">FAQ</li>
-        <li class="metaitem">Contact</li>
-    	<li class="loginbutton">Login</li>
+    	<li class="metaitem"><a href="#">Join</a></li>
+    	<li class="metaitem"><a href="#">FAQ</a></li>
+        <li class="metaitem"><a href="#">Contact</a></li>
+    	<li class="loginbutton"><a href="#">Login</a></li>
     </ul>
     
 </div>
