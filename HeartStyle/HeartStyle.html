@@ -52,13 +52,6 @@ ul[id=meta_container] {
     line-height: inherit;
 }
 
-/* The HEART logo ribbon */
-[id=heartribbon] {
-    display: inline-block;
-    float: left;
-    z-index: 1;
-}
-
 /* List items, not login button */
 li[class=metaitem] {
     display: inline-block;
@@ -137,7 +130,41 @@ li[class=loginbutton]:active {
 li[class=loginbutton]:hover {
 	background: #75a1d2;
 }
-/* -----------------------------------------------------------------------------------*/
+/* Ribbons ------------------------------------------------------------------------------*/
+
+/* https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201.png
+*/
+
+
+/* The HEART logo ribbon */
+[id=heartribbon] {
+    display: inline-block;
+    float: left;
+    z-index: 1;
+    width: 185px;
+    height: 169px;
+}
+
+[id="ribbon1"] {
+	position: absolute;
+    background-image: url("https://github.com/xaresys/xaresys.github.io/blob/master/HeartStyle/logo%20ribbon%201%20small.png?raw=true");
+    background-repeat: no-repeat;
+    z-index: 2;
+    /*background-size: contain;*/
+    width: inherit;
+    height: inherit;
+}
+
+[id="ribbon2"] {
+	position: absolute;
+    background-image: url("https://github.com/xaresys/xaresys.github.io/blob/master/HeartStyle/logo%20ribbon%202%20small.png?raw=true");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: inherit;
+    height: inherit;
+}
+
+/* ----------------------------------------------------------------------------------*/
 
 /* Gotta love mobile... >_> */
 @media screen and (max-width: 600px){
@@ -151,9 +178,15 @@ li[class=loginbutton]:hover {
 	<ul id="meta_container">
     	<!--<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>-->
         <li id="heartribbon">
-        	<div id="ribbon">
-        		<img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50">
+        	<div id="ribbon1">
+            	<img src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201.png" style="visibility: hidden;">
             </div>
+            
+            <div id="ribbon2">
+            	<img src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%202.png" style="visibility: hidden;">
+            </div>
+            
+            
         </li>
     	<li class="metaitem">Join</li>
     	<li class="metaitem">FAQ</li>
@@ -164,6 +197,5 @@ li[class=loginbutton]:hover {
 </div>
 
 https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png
-
 </body>
 </html>
