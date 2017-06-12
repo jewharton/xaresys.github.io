@@ -27,24 +27,29 @@ body {margin: 0;}
 /* New metabar ------------------------------------------------------------------------------------- */
 
 /* The actual bar */
-ul[id=new_metabar] {
+div[id=new_metabar] {
 	list-style-type: none;
     margin: 0;
     padding: 0;
     white-space: nowrap;
     height: 50px;
     width: auto;
+    display:block;
+    line-height: 50px;
 }
 
 /* The thing that contains the items */
-div[id=meta_container] {
+ul[id=meta_container] {
 	margin: auto;
+    padding: inherit;
     min-width: 200px;
     max-width: 500px;
     position: absolute;
     left: 0;
     right: 0;
     display: inline-block;
+    height: inherit;
+    line-height: inherit;
 }
 
 /* The HEART logo ribbon */
@@ -58,14 +63,14 @@ div[id=meta_container] {
 li[class=metaitem] {
     display: inline-block;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0px 3%;
     text-decoration: none;
     float: left;
     
     font-family: Merriweather;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-right: 1px solid rgba(48, 117, 191, 0.3);
-    height: 100%;
+    height: inherit;
     
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,eaf2f9+90,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
@@ -97,13 +102,17 @@ li[class=metaitem]:hover {
 li[class=loginbutton] {
     display: inline-block;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0px 3%;
     text-decoration: none;
     float: right;
+    height: inherit;
+    
+    left: 0;
     
     font-family: Merriweather;
     border-left: 2px solid rgba(255, 255, 255, 0.2);
     border-right: 2px solid rgba(48, 117, 191, 0.2);
+    vertical-align: middle;
     
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,75a1d2+90,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
@@ -130,11 +139,16 @@ li[class=loginbutton]:hover {
 }
 /* -----------------------------------------------------------------------------------*/
 
+/* Gotta love mobile... >_> */
+@media screen and (max-width: 600px){
+    /* Stuff here, like stretching the navigation links */
+}
+
 </style>
 
 
-<ul id="new_metabar" metabar="regular">
-	<div id="meta_container">
+<div id="new_metabar" metabar="regular">
+	<ul id="meta_container">
     	<!--<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>-->
         <li id="heartribbon">
         	<div id="ribbon">
@@ -145,9 +159,9 @@ li[class=loginbutton]:hover {
     	<li class="metaitem">FAQ</li>
         <li class="metaitem">Contact</li>
     	<li class="loginbutton">Login</li>
-    </div>
+    </ul>
     
-</ul>
+</div>
 
 https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png
 
