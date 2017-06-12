@@ -11,6 +11,8 @@
   src: url(https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/Merriweather-Bold.ttf);
 }
 
+body {margin: 0;}
+
 /* ------------------------------------------------*/
 
 [id=new_metabar] {
@@ -27,25 +29,34 @@
 /* The actual bar */
 ul[id=new_metabar] {
 	list-style-type: none;
-    overflow: hidden;
     margin: 0;
     padding: 0;
     white-space: nowrap;
     height: 50px;
-    width: 100%;
-    /*min-width: 200px;*/
+    width: auto;
 }
 
-/* The actual bar */
+/* The thing that contains the items */
 div[id=meta_container] {
 	margin: auto;
     min-width: 200px;
     max-width: 500px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: inline-block;
+}
+
+/* The HEART logo ribbon */
+[id=heartribbon] {
+    display: inline-block;
+    float: left;
+    z-index: 1;
 }
 
 /* List items, not login button */
 li[class=metaitem] {
-    display: block;
+    display: inline-block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -63,8 +74,9 @@ li[class=metaitem] {
 	background: linear-gradient(to bottom, #acc7e4 0%,#eaf2f9 90%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#eaf2f9',GradientType=0 ); /* IE6-9 */
     
-	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+	text-shadow: 1px 1px 2px rgba(255,255,255,1);
     color: #3b6fa3;
+    /*color: #ffffff;*/
 }
 
 li[class=metaitem]:active {
@@ -83,8 +95,7 @@ li[class=metaitem]:hover {
 /* Login button --------------------------------------------------------------- */
 
 li[class=loginbutton] {
-    display: block;
-    color: #666;
+    display: inline-block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -124,10 +135,16 @@ li[class=loginbutton]:hover {
 
 <ul id="new_metabar" metabar="regular">
 	<div id="meta_container">
-    	<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>
+    	<!--<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>-->
+        <li id="heartribbon">
+        	<div id="ribbon">
+        		<img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50">
+            </div>
+        </li>
     	<li class="metaitem">Join</li>
     	<li class="metaitem">FAQ</li>
-    	<li class="loginbutton">Contact</li>
+        <li class="metaitem">Contact</li>
+    	<li class="loginbutton">Login</li>
     </div>
     
 </ul>
