@@ -4,7 +4,16 @@
 
 <style>
 
-[metabar=regular] {
+@font-face {
+  font-family: 'Merriweather';
+  /*font-style: normal;*/
+  /*font-weight: Bold;*/
+  src: url(https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/Merriweather-Bold.ttf);
+}
+
+/* ------------------------------------------------*/
+
+[id=new_metabar] {
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,eaf2f9+90,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
 	background: -moz-linear-gradient(top, #acc7e4 0%, #eaf2f9 90%, #acc7e4 100%); /* FF3.6-15 */
@@ -13,11 +22,52 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#eaf2f9',GradientType=0 ); /* IE6-9 */
 }
 
-[metabar=hover] {
-	background: #acc7e4;
+/* New metabar ------------------------------------------------------------------------------------- */
+
+/* The actual bar */
+ul[id=new_metabar] {
+	list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    height: 50px;
+    width: 100%;
+    /*min-width: 200px;*/
 }
 
-[metabar=pressed] {
+/* The actual bar */
+div[id=meta_container] {
+	margin: auto;
+    min-width: 200px;
+    max-width: 500px;
+}
+
+/* List items, not login button */
+li[class=metaitem] {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: left;
+    
+    font-family: Merriweather;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(48, 117, 191, 0.3);
+    height: 100%;
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,eaf2f9+90,acc7e4+100 */
+	background: #acc7e4; /* Old browsers */
+	background: -moz-linear-gradient(top, #acc7e4 0%, #eaf2f9 90%, #acc7e4 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #acc7e4 0%,#eaf2f9 90%,#acc7e4 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #acc7e4 0%,#eaf2f9 90%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#eaf2f9',GradientType=0 ); /* IE6-9 */
+    
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    color: #3b6fa3;
+}
+
+li[class=metaitem]:active {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,75a1d2+10,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
 	background: -moz-linear-gradient(top, #acc7e4 0%, #75a1d2 10%, #acc7e4 100%); /* FF3.6-15 */
@@ -26,23 +76,37 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75a1d2', endColorstr='#acc7e4',GradientType=0 ); /* IE6-9 */
 }
 
-/* Hover ------------------------------------------------------------------ */
+li[class=metaitem]:hover {
+	background: #acc7e4;
+}
 
-[metabar=login-regular] {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,75a1d2+90,acc7e4+100 */
+/* Login button --------------------------------------------------------------- */
+
+li[class=loginbutton] {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: right;
+    
+    font-family: Merriweather;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: 2px solid rgba(48, 117, 191, 0.2);
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,75a1d2+90,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
 	background: -moz-linear-gradient(top, #acc7e4 0%, #75a1d2 90%, #acc7e4 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #acc7e4 0%,#75a1d2 90%,#acc7e4 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, #acc7e4 0%,#75a1d2 90%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acc7e4', endColorstr='#75a1d2',GradientType=0 ); /* IE6-9 */
+    
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    color: #ffffff;
 }
 
-[metabar=login-hover] {
-	background: #75a1d2;
-}
-
-[metabar=login-pressed] {
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#75a1d2+0,1a71ce+10,75a1d2+100 */
+li[class=loginbutton]:active {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#75a1d2+0,1a71ce+10,75a1d2+100 */
 	background: #75a1d2; /* Old browsers */
 	background: -moz-linear-gradient(top, #75a1d2 0%, #1a71ce 10%, #75a1d2 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #75a1d2 0%,#1a71ce 10%,#75a1d2 100%); /* Chrome10-25,Safari5.1-6 */
@@ -50,21 +114,25 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1A71CE', endColorstr='#75a1d2',GradientType=0 ); /* IE6-9 */
 }
 
-/* New metabar ------------------------------------------------------------------------------------- */
-
-ul[id=new_metabar] {
-	list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+li[class=loginbutton]:hover {
+	background: #75a1d2;
 }
+/* -----------------------------------------------------------------------------------*/
 
 </style>
 
 
 <ul id="new_metabar" metabar="regular">
-    <p> hi </p>
+	<div id="meta_container">
+    	<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>
+    	<li class="metaitem">Join</li>
+    	<li class="metaitem">FAQ</li>
+    	<li class="loginbutton">Contact</li>
+    </div>
+    
 </ul>
+
+https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png
 
 </body>
 </html>
