@@ -55,10 +55,10 @@ ul[id=meta_container] {
 }
 
 /* List items, not login button */
-li[class=metaitem] {
+[class=metaitem] {
     display: inline-block;
     text-align: center;
-    padding: 3px 3%;
+    padding: 3px 2%;
     text-decoration: none;
     float: left;
     
@@ -79,7 +79,7 @@ li[class=metaitem] {
     /*color: #ffffff;*/
 }
 
-li[class=metaitem]:active {
+[class=metaitem]:active {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,75a1d2+10,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
 	background: -moz-linear-gradient(top, #acc7e4 0%, #75a1d2 10%, #acc7e4 100%); /* FF3.6-15 */
@@ -90,16 +90,16 @@ li[class=metaitem]:active {
     
 }
 
-li[class=metaitem]:hover {
+[class=metaitem]:hover {
 	background: #acc7e4;
 }
 
 /* Login button --------------------------------------------------------------- */
 
-li[class=loginbutton] {
+[class=loginbutton] {
     display: inline-block;
     text-align: center;
-    padding: 3px 3%;
+    padding: 3px 2%;
     text-decoration: none;
     float: right;
     /*height: inherit;*/
@@ -122,7 +122,7 @@ li[class=loginbutton] {
     color: #ffffff;
 }
 
-li[class=loginbutton]:active {
+[class=loginbutton]:active {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#75a1d2+0,1a71ce+10,75a1d2+100 */
 	background: #75a1d2; /* Old browsers */
 	background: -moz-linear-gradient(top, #75a1d2 0%, #1a71ce 10%, #75a1d2 100%); /* FF3.6-15 */
@@ -131,13 +131,12 @@ li[class=loginbutton]:active {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1A71CE', endColorstr='#75a1d2',GradientType=0 ); /* IE6-9 */
 }
 
-li[class=loginbutton]:hover {
+[class=loginbutton]:hover {
 	background: #75a1d2;
 }
 
-li[class=metaitem] a, li[class=loginbutton] a {
+a[class=metaitem], a[class=loginbutton] {
 	text-decoration: none;
-    color: inherit;
 }
 /* Ribbons ------------------------------------------------------------------------------*/
 
@@ -168,14 +167,36 @@ li[class=metaitem] a, li[class=loginbutton] a {
     filter:         drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2)); 
 }
 
+[id="ribbon_placeholder"] {
+	margin: 0;
+    padding: 1px;
+    width: 184px;
+    float: left;
+    border-left: 0;
+    border-right: 0;
+    visibility: hidden;
+}
+
 /* ----------------------------------------------------------------------------------*/
 
 /* Gotta love mobile... >_> */
 @media screen and (max-width: 400px){
-    /* Stuff here, like stretching the navigation links */
-    /*li[class="metaitem"], li[class="loginbutton"], li[id="heartribbon"] {*/
-    li[class="metaitem"], li[class="loginbutton"] {
+    [class="metaitem"], [class="loginbutton"] {
+    	/*display: none;
+        float: left;*/
+        float: none;
+        vertical-align: top;
+        display: table-cell;
+    }
+    
+    [id=heartribbon], [id=ribbon_placeholder] {
     	display: none;
+    }
+    
+    [id=meta_container] {
+    	display: table;
+        table-layout: fixed;
+        width: 100%;
     }
 }
 
@@ -189,17 +210,19 @@ li[class=metaitem] a, li[class=loginbutton] a {
 
 <div id="new_metabar" metabar="regular">
 	<ul id="meta_container">
+    	<li id="heartribbon-mobile" style="display: none">Here goes the mobile banner</li>
     	<!--<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>-->
         <li id="heartribbon">
         	<img id="ribbon1" src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201%20small.png"></img>
             
             <img id="ribbon2" src="https://github.com/xaresys/xaresys.github.io/blob/master/HeartStyle/logo%20ribbon%202%20small.png?raw=true"></img>
         </li>
-        <li class="metaitem" id="ribbon_placeholder" style="width: 154px; height: inherit; float: left; border-left: 0; border-right: 0;"></li>
-    	<li class="metaitem"><a href="#">Join</a></li>
-    	<li class="metaitem"><a href="#">FAQ</a></li>
-        <li class="metaitem"><a href="#">Contact</a></li>
-    	<li class="loginbutton"><a href="#">Login</a></li>
+        <a class="metaitem" id="ribbon_placeholder"></li>
+    	<a class="metaitem" href="#">Join</a>
+    	<a class="metaitem" href="#">FAQ</a>
+        <a class="metaitem" href="#">Contact</a>
+        <a class="metaitem" href="#">Admin</a>
+    	<a class="loginbutton" href="#">Login</a>
     </ul>
     
     <!-- Mobile friendly layout -->
