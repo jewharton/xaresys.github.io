@@ -28,41 +28,44 @@ body {margin: 0;}
 
 /* The actual bar */
 div[id=new_metabar] {
-    list-style-type: none;
+	list-style-type: none;
     margin: 0;
     padding: 0;
     white-space: nowrap;
-    height: 50px;
-    width: auto;
+    height: auto;
+    width: 100%;
     display:block;
     line-height: 50px;
+    overflow:hidden;
 }
 
 /* The thing that contains the items */
 ul[id=meta_container] {
-	margin: auto;
+	margin: 0 auto;
     padding: inherit;
     max-width: 500px;
-    position: absolute;
+    min-height: 50px;
+    /*position: absolute;
     left: 0;
     right: 0;
-    display: inline-block;
+    display: inline-block;*/
     height: inherit;
     line-height: inherit;
+    overflow:hidden;
 }
 
 /* List items, not login button */
 li[class=metaitem] {
     display: inline-block;
     text-align: center;
-    padding: 0px 3%;
+    padding: 3px 3%;
     text-decoration: none;
     float: left;
     
     font-family: Merriweather;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-right: 1px solid rgba(48, 117, 191, 0.3);
-    height: inherit;
+    /*height: inherit;*/
     
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#acc7e4+0,eaf2f9+90,acc7e4+100 */
 	background: #acc7e4; /* Old browsers */
@@ -83,6 +86,8 @@ li[class=metaitem]:active {
 	background: -webkit-linear-gradient(top, #acc7e4 0%,#75a1d2 10%,#acc7e4 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, #acc7e4 0%,#75a1d2 10%,#acc7e4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75a1d2', endColorstr='#acc7e4',GradientType=0 ); /* IE6-9 */
+    
+    
 }
 
 li[class=metaitem]:hover {
@@ -94,10 +99,10 @@ li[class=metaitem]:hover {
 li[class=loginbutton] {
     display: inline-block;
     text-align: center;
-    padding: 0px 3%;
+    padding: 3px 3%;
     text-decoration: none;
     float: right;
-    height: inherit;
+    /*height: inherit;*/
     
     left: 0;
     
@@ -147,6 +152,7 @@ li[class=metaitem] a, li[class=loginbutton] a {
     z-index: 1;
     width: 184px;
     height: 169px;
+    position: absolute;
 }
 
 [id="ribbon1"] {
@@ -165,12 +171,15 @@ li[class=metaitem] a, li[class=loginbutton] a {
 /* ----------------------------------------------------------------------------------*/
 
 /* Gotta love mobile... >_> */
-@media screen and (max-width: 600px){
+@media screen and (max-width: 400px){
     /* Stuff here, like stretching the navigation links */
-    li[class="metaitem"], li[class="loginbutton"], li[id="heartribbon"] {
+    /*li[class="metaitem"], li[class="loginbutton"], li[id="heartribbon"] {*/
+    li[class="metaitem"], li[class="loginbutton"] {
     	display: none;
     }
 }
+
+/* Time to make some mobile-friendly layouts */
 
 
 
@@ -186,11 +195,15 @@ li[class=metaitem] a, li[class=loginbutton] a {
             
             <img id="ribbon2" src="https://github.com/xaresys/xaresys.github.io/blob/master/HeartStyle/logo%20ribbon%202%20small.png?raw=true"></img>
         </li>
+        <li class="metaitem" id="ribbon_placeholder" style="width: 154px; height: inherit; float: left; border-left: 0; border-right: 0;"></li>
     	<li class="metaitem"><a href="#">Join</a></li>
     	<li class="metaitem"><a href="#">FAQ</a></li>
         <li class="metaitem"><a href="#">Contact</a></li>
     	<li class="loginbutton"><a href="#">Login</a></li>
     </ul>
+    
+    <!-- Mobile friendly layout -->
+    
     
 </div>
 
