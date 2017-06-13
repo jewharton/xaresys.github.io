@@ -43,8 +43,8 @@ div[id=new_metabar] {
 ul[id=meta_container] {
 	margin: 0 auto;
     padding: inherit;
-    max-width: 600px;
-    min-width: 300px;
+    max-width: 953px;
+    /*min-width: 534px;*/
     height: inherit;
     line-height: inherit;
     overflow:hidden;
@@ -168,8 +168,43 @@ a[class=metaitem], a[class=loginbutton] {
 
 /* ----------------------------------------------------------------------------------*/
 
+/* Mobile ribbon banner */
+
+[id="mobile_ribbon"] {
+	height: 58px;
+    width: 100%;
+    display: none;
+    text-align: center;
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-	editor/#e1e4ed+0,ffffff+25,ffffff+75,e1e4ed+100 */
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #e1e4ed 0%, #ffffff 25%, #ffffff 75%, #e1e4ed 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #e1e4ed 0%,#ffffff 25%,#ffffff 75%,#e1e4ed 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #e1e4ed 0%,#ffffff 25%,#ffffff 75%,#e1e4ed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e1e4ed',GradientType=0 ); /* IE6-9 */
+}
+
+[class="ribbonblue"] {
+	width: 12px;
+    height: inherit;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3b6fa3+0,75a1d2+25,75a1d2+75,3b6fa3+100 */
+	background: #75a1d2; /* Old browsers */
+	background: -moz-linear-gradient(top, #3b6fa3 0%, #75a1d2 25%, #75a1d2 75%, #3b6fa3 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #3b6fa3 0%,#75a1d2 25%,#75a1d2 75%,#3b6fa3 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #3b6fa3 0%,#75a1d2 25%,#75a1d2 75%,#3b6fa3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75a1d2', endColorstr='#3b6fa3',GradientType=0 ); /* IE6-9 */
+}
+
+[id="rbleft"] {
+	float: left;
+}
+
+[id="rbright"] {
+	float: right;
+}
+
 /* Gotta love mobile... >_> */
-@media screen and (max-width: 400px){
+@media screen and (max-width: 537px){
     [class="metaitem"], [class="loginbutton"] {
         float: none;
         vertical-align: top;
@@ -185,19 +220,23 @@ a[class=metaitem], a[class=loginbutton] {
         table-layout: fixed;
         width: 100%;
     }
+    
+    [id="mobile_ribbon"] {
+    	display: block;
+    }
 }
-
-/* Time to make some mobile-friendly layouts */
-
-
 
 
 </style>
 
+<div id="mobile_ribbon">
+	<div class="ribbonblue" id="rbleft"></div>
+    <img id="mobilelogo" src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/mini%20logo.png"></img>
+    <div class="ribbonblue" id="rbright"></div>
+</div>
 
 <div id="new_metabar" metabar="regular">
 	<ul id="meta_container">
-    	<li id="heartribbon-mobile" style="display: none">Here goes the mobile banner</li>
     	<!--<li style="position: absolute;"><img src="https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png" height="100" width="50"></li>-->
         <li id="heartribbon">
         	<img id="ribbon1" src="https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201%20small.png"></img>
@@ -211,10 +250,6 @@ a[class=metaitem], a[class=loginbutton] {
         <a class="metaitem" href="#">Admin</a>
     	<a class="loginbutton" href="#">Login</a>
     </ul>
-    
-    <!-- Mobile friendly layout -->
-    
-    
 </div>
 
 https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png
