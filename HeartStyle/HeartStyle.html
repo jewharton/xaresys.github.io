@@ -43,12 +43,8 @@ div[id=new_metabar] {
 ul[id=meta_container] {
 	margin: 0 auto;
     padding: inherit;
-    max-width: 500px;
-    min-height: 50px;
-    /*position: absolute;
-    left: 0;
-    right: 0;
-    display: inline-block;*/
+    max-width: 600px;
+    min-width: 300px;
     height: inherit;
     line-height: inherit;
     overflow:hidden;
@@ -102,9 +98,6 @@ ul[id=meta_container] {
     padding: 3px 2%;
     text-decoration: none;
     float: right;
-    /*height: inherit;*/
-    
-    left: 0;
     
     font-family: Merriweather;
     border-left: 2px solid rgba(255, 255, 255, 0.2);
@@ -139,10 +132,6 @@ a[class=metaitem], a[class=loginbutton] {
 	text-decoration: none;
 }
 /* Ribbons ------------------------------------------------------------------------------*/
-
-/* https://raw.githubusercontent.com/xaresys/xaresys.github.io/master/HeartStyle/logo%20ribbon%201.png
-*/
-
 
 /* The HEART logo ribbon */
 [id=heartribbon] {
@@ -182,8 +171,6 @@ a[class=metaitem], a[class=loginbutton] {
 /* Gotta love mobile... >_> */
 @media screen and (max-width: 400px){
     [class="metaitem"], [class="loginbutton"] {
-    	/*display: none;
-        float: left;*/
         float: none;
         vertical-align: top;
         display: table-cell;
