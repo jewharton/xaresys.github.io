@@ -381,14 +381,16 @@ $(document).ready(function () {
     $(".navbar_item").click(function () {
         $('.navbar_item > ul').not($(this).children("ul").toggle()).hide();
         
-        var navitem = $(this);
-        var html = navitem.html();
-        
-        if (navitem.children("ul").is(":visible")) {
-            navitem.html(html.replace("▼", "▲"));
-        } else {
-            navitem.html(html.replace("▲", "▼"));
-        };
+        $('#navbar_inner').children('.navbar_item').each(function () {
+			var navitem = $(this);
+        	var html = navitem.html();
+            
+			if (navitem.children("ul").is(":visible")) {
+                  navitem.html(html.replace("▼", "▲"));
+			} else {
+				navitem.html(html.replace("▲", "▼"));
+			};
+		});
         
     });
 });
