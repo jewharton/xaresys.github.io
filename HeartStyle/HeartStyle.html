@@ -94,9 +94,9 @@ ul[id=meta_container] {
 
 [class=loginbutton] {
     display: inline-block;
-    text-align: center;
+    /*text-align: center;
     padding: 3px 2%;
-    text-decoration: none;
+    text-decoration: none;*/
     float: right;
     
     font-family: Merriweather;
@@ -291,6 +291,15 @@ a[class=metaitem], a[class=loginbutton] {
     display: block;
 }
 
+/* Login link ------------------------- */
+[class="loginbutton"] a {
+    text-align: center;
+    padding: 3px 10px;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
 /* Gotta love mobile... >_> ------------------------------------------------- */
 @media screen and (max-width: 537px){
     [class="metaitem"], [class="loginbutton"] {
@@ -339,7 +348,9 @@ a[class=metaitem], a[class=loginbutton] {
     	<a class="metaitem" href="#">FAQ</a>
         <a class="metaitem" href="#">Contact</a>
         <a class="metaitem" href="#">Admin</a>
-    	<a class="loginbutton" href="#">Login</a>
+    	<div class="loginbutton">
+        	<a href="#">Login</a>
+        </div>
     </ul>
 </div>
 
@@ -373,6 +384,8 @@ a[class=metaitem], a[class=loginbutton] {
 
 https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png
 http://via.placeholder.com/953x100?text=Banner+(953x100)
+
+
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
