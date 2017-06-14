@@ -346,7 +346,7 @@ a[class=metaitem], a[class=loginbutton] {
 <div id="navbar">
 	<div id="navbar_inner">
     	<li class="navbar_item">
-    		<a href="#">Calendar</a>
+    		<a href="#">Calendar ▼</a>
             <ul>
             	<li><a href="#">test</a></li>
                 <li><a href="#">testy test test</a></li>
@@ -358,7 +358,7 @@ a[class=metaitem], a[class=loginbutton] {
         </li>
         
         <li class="navbar_item">
-    		<a href="#">Resources</a>
+    		<a href="#">Resources ▼</a>
             <ul>
             	<li><a href="#">test</a></li>
                 <li><a href="#">testy test test</a></li>
@@ -380,6 +380,15 @@ http://via.placeholder.com/953x100?text=Banner+(953x100)
 $(document).ready(function () {
     $(".navbar_item").click(function () {
         $('.navbar_item > ul').not($(this).children("ul").toggle()).hide();
+        
+        var navitem = $(this);
+        var html = navitem.html();
+        
+        if (navitem.children("ul").is(":visible")) {
+            navitem.html(html.replace("▼", "▲"));
+        } else {
+            navitem.html(html.replace("▲", "▼"));
+        };
         
     });
 });
