@@ -236,7 +236,7 @@ a[class=metaitem], a[class=loginbutton] {
 	display: table-cell;
 	text-decoration: none;
     color: #ffffff;
-    padding: 5px 5px;
+    /*padding: 5px 5px;*/
     font-family: Merriweather;
     font-size: 0.8em;
     border-left: 1px solid rgba(255, 255, 255, 0.25);
@@ -246,7 +246,52 @@ a[class=metaitem], a[class=loginbutton] {
     white-space: nowrap;
 }
 
-/* Gotta love mobile... >_> */
+[class="navbar_item"] a {
+	text-decoration: none;
+    padding: 3px 0px;
+    color: inherit;
+    width: 100%;
+    display: block;
+}
+
+/* Navbar list */
+[class="navbar_item"] ul {
+	background: #4b4b4b;
+	list-style: none;
+    position: absolute;
+    padding: 0;
+    vertical-align: center;
+    margin: 0px 0px;
+    margin-left: -1px;
+    display: none;
+    
+    /* Permalink - use to edit and share this gradient: 	http://colorzilla.com/gradient-editor/#1e1e1e+0,4b4b4b+100 */
+	background: #4b4b4b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #4b4b4b 0%, #1e1e1e 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #4b4b4b 0%,#1e1e1e 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #4b4b4b 0%,#1e1e1e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b4b4b', endColorstr='#1e1e1e',GradientType=0 ); /* IE6-9 */
+}
+
+/* Navbar list item */
+[class="navbar_item"] ul li {
+	/*padding: 5px 5px;*/
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+/* Navbar list link */
+[class="navbar_item"] ul li a {
+	text-decoration: underline;
+    padding: 5px 8px;
+    color: inherit;
+    display: block;
+}
+
+/* Gotta love mobile... >_> ------------------------------------------------- */
 @media screen and (max-width: 537px){
     [class="metaitem"], [class="loginbutton"] {
         float: none;
@@ -300,21 +345,45 @@ a[class=metaitem], a[class=loginbutton] {
 
 <div id="navbar">
 	<div id="navbar_inner">
-    	<a href="#" class="navbar_item">
-        	Calendar
-		</a>
-        <a href="#" class="navbar_item">
-        	Events
-		</a>
-        <a href="#" class="navbar_item">
-        	Resources
-		</a>
-        <a href="#" class="navbar_item">
-        	The Board
-		</a>
+    	<li class="navbar_item">
+    		<a href="#">Calendar</a>
+            <ul>
+            	<li><a href="#">test</a></li>
+                <li><a href="#">testy test test</a></li>
+            </ul>
+        </li>
+        
+        <li class="navbar_item">
+    		<a href="#">Events</a>
+        </li>
+        
+        <li class="navbar_item">
+    		<a href="#">Resources</a>
+            <ul>
+            	<li><a href="#">test</a></li>
+                <li><a href="#">testy test test</a></li>
+            </ul>
+        </li>
+        
+        <li class="navbar_item">
+    		<a href="#">The Board</a>
+        </li>
     </div>
 </div>
 
 https://www.homeschool-life.com/tx/heart/websitegrafix/Join-Button.png
+http://via.placeholder.com/953x100?text=Banner+(953x100)
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $(".navbar_item").click(function () {
+        $('.navbar_item > ul').not($(this).children("ul").toggle()).hide();
+        
+    });
+});
+</script>
+
 </body>
 </html>
