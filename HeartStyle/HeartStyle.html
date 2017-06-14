@@ -203,30 +203,7 @@ a[class=metaitem], a[class=loginbutton] {
 	float: right;
 }
 
-/* Gotta love mobile... >_> */
-@media screen and (max-width: 537px){
-    [class="metaitem"], [class="loginbutton"] {
-        float: none;
-        vertical-align: top;
-        display: table-cell;
-    }
-    
-    [id=heartribbon], [id=ribbon_placeholder] {
-    	display: none;
-    }
-    
-    [id=meta_container] {
-    	display: table;
-        table-layout: fixed;
-        width: 100%;
-    }
-    
-    [id="mobile_ribbon"] {
-    	display: block;
-    }
-}
-
-/* Navigation bar */
+/* Navigation bar --------------------------------------- */
 
 [id="navbar"] {
 	display:block;
@@ -264,6 +241,36 @@ a[class=metaitem], a[class=loginbutton] {
     font-size: 0.8em;
     border-left: 1px solid rgba(255, 255, 255, 0.25);
     border-right: 1px solid rgba(0, 0, 0, 0.5);
+    vertical-align: middle;
+    /*line-height: 0.8;*/
+    white-space: nowrap;
+}
+
+/* Gotta love mobile... >_> */
+@media screen and (max-width: 537px){
+    [class="metaitem"], [class="loginbutton"] {
+        float: none;
+        vertical-align: top;
+        display: table-cell;
+    }
+    
+    [id=heartribbon], [id=ribbon_placeholder] {
+    	display: none;
+    }
+    
+    [id=meta_container] {
+    	display: table;
+        table-layout: fixed;
+        width: 100%;
+    }
+    
+    [id="mobile_ribbon"] {
+    	display: block;
+    }
+    
+    [id="navbar_inner"] {
+    	padding-left: 0px;
+    }
 }
 
 </style>
@@ -294,12 +301,17 @@ a[class=metaitem], a[class=loginbutton] {
 <div id="navbar">
 	<div id="navbar_inner">
     	<a href="#" class="navbar_item">
-        	Item
+        	Calendar
 		</a>
         <a href="#" class="navbar_item">
-        	Item2
+        	Events
 		</a>
-        
+        <a href="#" class="navbar_item">
+        	Resources
+		</a>
+        <a href="#" class="navbar_item">
+        	The Board
+		</a>
     </div>
 </div>
 
