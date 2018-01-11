@@ -7,6 +7,7 @@
 
 @import "reset";
 @import "variables";
+@import "fonts";
 // Syntax highlighting @import is at the bottom of this file
 
 /**************/
@@ -192,12 +193,16 @@ img {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
+  color: $white;
   cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
+  font-family: "Zilla Slab";
+  font-weight: bold;
+  font-size: 1.5em;
   letter-spacing: 1px;
+  background-color: $black;
+  padding: 2px 10px;
+  line-height: inherit;
+  text-shadow: 4px 4px $darkGray;
 }
 
 .site-description {
