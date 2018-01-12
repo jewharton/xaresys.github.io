@@ -201,12 +201,12 @@ img {
   letter-spacing: 1px;
   background-color: $black;
   padding: 2px 10px;
-  line-height: inherit;
+  line-height: 64px;
   text-shadow: 4px 4px $darkGray;
   a {
     position: relative;
     top: -10px;
-    &:hover, &:active {
+    &:hover {
         color: #cce6ff;
     }
   }
@@ -216,8 +216,11 @@ img {
   margin: 8px 0;
   color: $white;
   background-color: $black;
-  font-size: 1em;
+  font-size: 1.03em;
   font-family: "Zilla Slab";
+  padding-left: 12px;
+  padding: 1px;
+  font-weight: 600;
 
   @include mobile {
     margin: 3px 0;
@@ -241,7 +244,7 @@ nav {
     margin-left: 19px;
     color: $white;
     background-color: $black;
-    padding: 5x 8px;
+    padding: 5px 8px;
     text-align: center;
     font-weight: 300;
     letter-spacing: 1px;
