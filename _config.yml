@@ -15,6 +15,9 @@ avatar: /images/site/insignia-white.png
 # Flags below are optional
 #
 
+#Allow Jekyll to show future posts
+future: true
+
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
