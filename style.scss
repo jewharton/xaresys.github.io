@@ -158,7 +158,6 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
 
   @include mobile {
     text-align: center;
@@ -198,18 +197,27 @@ img {
   cursor: pointer;
   font-family: "Zilla Slab";
   font-weight: bold;
-  font-size: 3em;
+  font-size: 3.5em;
   letter-spacing: 1px;
   background-color: $black;
   padding: 2px 10px;
   line-height: inherit;
   text-shadow: 4px 4px $darkGray;
+  a {
+    position: relative;
+    top: -10px;
+    &:hover, &:active {
+        color: $lightBlue;
+    }
+  }
 }
 
 .site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
+  margin: 8px 0;
+  color: $white;
+  background-color: $black;
+  font-size: 1em;
+  font-family: "Zilla Slab";
 
   @include mobile {
     margin: 3px 0;
@@ -219,7 +227,7 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
+  font-family: "Zilla Slab";
   font-size: 18px;
 
   @include mobile {
@@ -230,9 +238,11 @@ nav {
   }
 
   a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
+    margin-left: 19px;
+    color: $white;
+    background-color: $black;
+    padding: 5x 8px;
+    text-align: center;
     font-weight: 300;
     letter-spacing: 1px;
 
